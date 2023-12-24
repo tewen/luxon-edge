@@ -23,8 +23,16 @@
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tewen/luxon-edge.git"
+  },
   "author": "Trevor Ewen",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tewen/luxon-edge/issues"
+  },
+  "homepage": "https://github.com/tewen/luxon-edge#readme",
   "peerDependencies": {
     "luxon": "^3.4.4",
     "luxon-business-days": "^3.0.1"
