@@ -1,0 +1,44 @@
+{
+  "name": "luxon-edge",
+  "version": "0.0.1",
+  "description": "Advanced utilities for the most advanced Luxon users.",
+  "files": [
+    "dist",
+    "package.json"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup ./src",
+    "test": "jest --coverage",
+    "test:watch": "npm test -- --watch",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix"
+  },
+  "author": "Trevor Ewen",
+  "license": "ISC",
+  "peerDependencies": {
+    "luxon": "^3.4.4",
+    "luxon-business-days": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.5",
+    "@types/luxon": "^3.3.7",
+    "eslint-config-ethang": "^11.0.0",
+    "eslint-plugin-jest": "^27.4.0",
+    "jest": "^29.7.0",
+    "luxon": "^3.4.4",
+    "luxon-business-days": "^3.0.1",
+    "ts-jest": "^29.1.1",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  }
+}
