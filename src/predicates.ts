@@ -17,5 +17,14 @@ export const isWeekDay = (dateTime: DateTime) => {
 };
 
 export const isWeekend = (dateTime: DateTime) => {
-  return [0, 6].includes(dateTime.weekday);
+  return [6, 7].includes(dateTime.weekday);
+};
+
+export const isLeapYear = (dateTime: DateTime) => {
+  const beginningOfYear = dateTime.startOf('year');
+  const { days } = beginningOfYear
+    .plus({ year: 1 })
+    .diff(beginningOfYear, ['days'])
+    .toObject();
+  return days === 366;
 };
