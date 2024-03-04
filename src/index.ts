@@ -1,1 +1,7 @@
-export { isSameDay, isWeekDay, isWeekend, isWithinMonth } from './predicates';
+export {
+  isLeapYear,
+  isSameDay,
+  isWeekDay,
+  isWeekend,
+  isWithinMonth,
+} from './predicates';

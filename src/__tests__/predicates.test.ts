@@ -1,6 +1,12 @@
 import { DateTime } from 'luxon';
 
-import { isSameDay, isWeekDay, isWithinMonth } from '../';
+import {
+  isLeapYear,
+  isSameDay,
+  isWeekDay,
+  isWeekend,
+  isWithinMonth,
+} from '../';
 
 describe('predicates', () => {
   describe('isWithinMonth()', () => {
@@ -81,10 +87,61 @@ describe('predicates', () => {
   });
 
   describe('isWeekend()', () => {
-    it('should return true for Saturday', () => {});
+    it('should return true for Saturday', () => {
+      const dateTime = DateTime.fromObject({ day: 23, month: 12, year: 2023 });
+      expect(isWeekend(dateTime)).toBe(true);
+    });
 
-    it('should return true for Sunday', () => {});
+    it('should return true for Sunday', () => {
+      const dateTime = DateTime.fromObject({ day: 7, month: 1, year: 2024 });
+      expect(isWeekend(dateTime)).toBe(true);
+    });
 
-    it('should return false for a weekday', () => {});
+    it('should return false for a Monday', () => {
+      const dateTime = DateTime.fromObject({ day: 8, month: 1, year: 2024 });
+      expect(isWeekend(dateTime)).toBe(false);
+    });
+
+    it('should return false for a Wednesday', () => {
+      const dateTime = DateTime.fromObject({ day: 7, month: 2, year: 2024 });
+      expect(isWeekend(dateTime)).toBe(false);
+    });
+
+    it('should return false for a Friday', () => {
+      const dateTime = DateTime.fromObject({ day: 9, month: 2, year: 2024 });
+      expect(isWeekend(dateTime)).toBe(false);
+    });
+  });
+
+  describe('isLeapYear()', () => {
+    it('should return false for a day in 2023', () => {
+      const dateTime = DateTime.fromObject({ day: 22, month: 4, year: 2023 });
+      expect(isLeapYear(dateTime)).toBe(false);
+    });
+
+    it('should return false for the first day in 2014', () => {
+      const dateTime = DateTime.fromObject({ day: 1, month: 1, year: 2014 });
+      expect(isLeapYear(dateTime)).toBe(false);
+    });
+
+    it('should return false for the last day in 2019', () => {
+      const dateTime = DateTime.fromObject({ day: 31, month: 12, year: 2019 });
+      expect(isLeapYear(dateTime)).toBe(false);
+    });
+
+    it('should return true for any day in 2024', () => {
+      const dateTime = DateTime.fromObject({ day: 8, month: 3, year: 2024 });
+      expect(isLeapYear(dateTime)).toBe(true);
+    });
+
+    it('should return true for the first day of 2020', () => {
+      const dateTime = DateTime.fromObject({ day: 1, month: 1, year: 2020 });
+      expect(isLeapYear(dateTime)).toBe(true);
+    });
+
+    it('should return true for the last day of 2016', () => {
+      const dateTime = DateTime.fromObject({ day: 31, month: 12, year: 2016 });
+      expect(isLeapYear(dateTime)).toBe(true);
+    });
   });
 });
