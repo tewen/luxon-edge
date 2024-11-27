@@ -1,6 +1,6 @@
 {
   "name": "luxon-edge",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Advanced utilities for the most advanced Luxon users.",
   "files": [
     "dist",
